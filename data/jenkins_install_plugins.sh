@@ -12,6 +12,7 @@
 set -e
 
 REF=/var/lib/jenkins/plugins
+JENKINS_UC_DOWNLOAD="http://updates.jenkins-ci.org/download"
 mkdir -p $REF
 
 while read spec || [ -n "$spec" ]; do

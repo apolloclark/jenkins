@@ -1,5 +1,4 @@
 # Jenkins - Pipeline
-=========
 
 Demo of the Jenkins Pipeline plugin, using Vagrant to run an Ubuntu 14.04 LTS
 64-bit instance, locally using Virtualbox, or remotely using Amazon. It will
@@ -27,6 +26,13 @@ vagrant up --provider=aws
 ```shell
 watch tail -n 32 /var/log/jenkins/jenkins.log
 ```
+
+## Configure for Language
+
+There are multiple sub-projects within this one which are Quickstarts for
+various programming languages and web frameworks. You can edit the Vagrantfile
+to install language specific code quality tools, and enable language specific
+Build projects.
 
 ## Links
 

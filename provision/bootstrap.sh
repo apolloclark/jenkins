@@ -26,7 +26,6 @@ echo "INFO: Installing Jenkins plugins..."
 mkdir -p /var/lib/jenkins/plugins/
 chmod -R 0777 /var/lib/jenkins/plugins
 
-export JENKINS_UC_DOWNLOAD="http://updates.jenkins-ci.org/download";
 /vagrant/jenkins_install_plugins.sh /vagrant/jenkins_plugins.txt
 service jenkins restart
 
@@ -41,7 +40,7 @@ echo "INFO: Done installing Jenkins plugins."
 # copy over project setup
 echo "INFO: Copying over Pre-configured Jobs."
 mkdir -p /var/lib/jenkins/jobs/
-cp -r /vagrant/jobs/* /var/lib/jenkins/jobs/
+cp -r /vagrant/jobs/PipelineDemo /var/lib/jenkins/jobs/
 chmod -R 777 /var/lib/jenkins/jobs/
 
 # restart Jenkins

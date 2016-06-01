@@ -1,0 +1,10 @@
+cobertura:1.9.8
+git:2.4.4
+github:1.19.1
+github-api:1.75
+matrix-project:1.7
+performance:1.13
+scm-api:1.2
+sloccount:1.21
+token-macro:1.11
+violations:0.7.11

@@ -13,6 +13,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # default provisioning script
     config.vm.provision :shell, path: "./provision/bootstrap.sh"
     
+    # language specific Pipelines:
+    # Python
+    config.vm.provision :shell, path: "./provision/bootstrap_python.sh"
+    # PHP
+    # config.vm.provision :shell, path: "./provision/bootstrap_php.sh"
+    # Java
+    # config.vm.provision :shell, path: "./provision/bootstrap_java.sh"
+    
     # Use Virtualbox by default
     config.vm.provider "virtualbox"
     config.vm.provider "aws"
