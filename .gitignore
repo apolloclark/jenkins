@@ -1,0 +1,6 @@
+
+.project
+
+.vagrant/**
+.vagrant/
+aws-config.yml

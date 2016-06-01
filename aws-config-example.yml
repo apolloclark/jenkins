@@ -1,0 +1,6 @@
+aws:
+  access_key_id     : 'AKIAAAAAAAAAAAAAAAA'
+  secret_access_key : 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+  keypair_name      : 'vagrant'
+  pemfile           : '/home/user/.ssh/vagrant.pem'
+  subnet_id         : 'subnet-1a2b3c4d'
