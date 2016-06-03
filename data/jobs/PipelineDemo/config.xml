@@ -6,10 +6,55 @@
   <properties/>
   <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.0">
     <script>node {
-   stage &apos;Stage 1&apos;
-   echo &apos;Hello World 1&apos;
-   stage &apos;Stage 2&apos;
-   echo &apos;Hello World 2&apos;
+   stage &apos;Git Pull&apos;
+   checkout([
+        $class: &apos;GitSCM&apos;,
+        branches: [[name: &apos;*/master&apos;]],
+        doGenerateSubmoduleConfigurations: false,
+        extensions: [],
+        submoduleCfg: [],
+        userRemoteConfigs: [[url: &apos;https://github.com/apolloclark/discover-flask-vagrant.git&apos;]]
+    ])
+
+    stage &apos;Prepare Database&apos;
+    dir(&apos;./www&apos;) {
+        sh &apos;&apos;&apos;
+python db_create_users.py
+python db_create_posts.py
+&apos;&apos;&apos;
+    }
+    
+    stage &apos;Static Analysis&apos;
+    dir(&apos;./www&apos;) {
+        sh &apos;pylint --generate-rcfile &gt; .pylintrc&apos;
+        parallel pylint: {
+            sh &apos;pylint -f parseable project/ 2&gt;&amp;1 | cat &gt; pylint.out&apos;
+        }, nose:{
+            sh &apos;nosetests --with-xcoverage --with-xunit --all-modules --traverse-namespace --cover-package=project --cover-inclusive --cover-erase -x tests.py &gt; /dev/null&apos;
+        },
+        failFast: true
+    }
+    
+    stage &apos;Deploy Servers&apos;
+    echo &apos;Deploying Testing Insfrastructure with Terrform and Ansible&apos;
+    
+    stage &apos;Dynamic Analysis&apos;
+    echo &apos;Running Selenium tests&apos;
+    echo &apos;Running JMeter stress tests&apos;
+    echo &apos;Running Gauntlt security tests&apos;
+    
+    stage &apos;Security Scan&apos;
+    echo &apos;Analysing UR cyberz!!!&apos;
+    
+    stage &apos;Tear-down Servers&apos;
+    echo &apos;Removing Testing Infrastructure&apos;
+
+    stage &apos;Generate Reports&apos;
+    echo &apos;Generating Report Graphs and Charts&apos;
+    build(&apos;Python_Pipeline&apos;)
+    
+    stage &apos;Have a Cocktail :)&apos;
+    echo &apos;Good on you! Have a cocktail. :)&apos;
 }</script>
     <sandbox>false</sandbox>
   </definition>

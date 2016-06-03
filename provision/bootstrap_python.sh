@@ -17,10 +17,10 @@ pip install --upgrade pip > /dev/null 2>&1
 # Install code quality tools
 pip install -qqq pylint > /dev/null
 pip install --quiet mock coverage nose nosexcover clonedigger ndg-httpsclient \
-	pyasn1
+	pyasn1 2>&1
 
 # Install Flask requirements
-pip install -qq -r /vagrant/jobs/Python_Pipeline/requirements.txt
+pip install -qq -r /vagrant/jobs/Python_Pipeline/requirements.txt 2>&1
 echo "INFO: Done installing Python."
 
 # create folder for SQLite DB
