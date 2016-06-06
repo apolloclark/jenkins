@@ -38,17 +38,20 @@ Build projects.
 
 ## Links
 
-https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin
-https://dzone.com/refcardz/continuous-delivery-with-jenkins-workflow
-https://documentation.cloudbees.com/docs/cookbook/pipeline-as-code.html
-http://udaypal.com/jenkins-workflow-getting-started/
-https://www.cloudbees.com/blog/parallelism-and-distributed-builds-jenkins
+- https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Plugin
+- https://dzone.com/refcardz/continuous-delivery-with-jenkins-workflow
+- https://documentation.cloudbees.com/docs/cookbook/pipeline-as-code.html
+- http://udaypal.com/jenkins-workflow-getting-started/
+- https://www.cloudbees.com/blog/parallelism-and-distributed-builds-jenkins
+<br/>
 
-https://github.com/jenkinsci/pipeline-examples/tree/master/pipeline-examples
-https://github.com/jenkinsci/workflow-aggregator-plugin/blob/master/demo/plugins.txt
-https://github.com/jenkinsci/pipeline-plugin/blob/master/COMPATIBILITY.md
+- https://github.com/jenkinsci/pipeline-examples/tree/master/pipeline-examples
+- https://github.com/jenkinsci/workflow-aggregator-plugin/blob/master/demo/plugins.txt
+- https://github.com/jenkinsci/pipeline-plugin/blob/master/COMPATIBILITY.md
+<br/>
 
-https://wiki.jenkins-ci.org/display/JENKINS/Plugin+tutorial
+- https://wiki.jenkins-ci.org/display/JENKINS/Plugin+tutorial
+<br/>
 
-http://www.slideshare.net/cloudbees/pimp-your-continuous-delivery-pipeline-with-jenkins-workflow-wjax-14/20
+- http://www.slideshare.net/cloudbees/pimp-your-continuous-delivery-pipeline-with-jenkins-workflow-wjax-14/20
 
