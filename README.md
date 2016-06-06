@@ -4,6 +4,8 @@ Demo of the Jenkins Pipeline plugin, using Vagrant to run an Ubuntu 14.04 LTS
 64-bit instance, locally using Virtualbox, or remotely using Amazon. It will
 pull down and use whatever the latest Jenkins Stable build is.
 
+![Jenkins Pipeline preview]("https://github.com/apolloclark/vagrant-jenkins-pipeline/blob/master/preview.jpg")
+
 ## Run Locally
 ```shell
 git clone https://github.com/apolloclark/vagrant-jenkins-pipeline
