@@ -13,6 +13,7 @@ cd vagrant-jenkins-pipeline
 cp aws-config-example.yml aws-config.yml
 vagrant up
 # open a browser: http://127.0.0.1:8080/job/PipelineDemo/
+# click "Build Now"
 ```
 
 ## Run on Amazon
@@ -23,6 +24,7 @@ cp aws-config-example.yml aws-config.yml
 # update aws-config.yml with AWS credentials
 vagrant up --provider=aws
 # open a browser: http://<ec2_ip_addr>:8080/job/PipelineDemo/
+# click "Build Now"
 ```
 
 ## Jenkins Logs

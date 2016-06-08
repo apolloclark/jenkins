@@ -20,15 +20,15 @@ pip install --quiet mock coverage nose nosexcover clonedigger ndg-httpsclient \
 	pyasn1 2>&1
 
 # Install Flask requirements
-pip install -qq -r /vagrant/jobs/Python_Pipeline/requirements.txt 2>&1
+pip install -qqq -r /vagrant/jobs/Python_Pipeline/requirements.txt 2>&1
 echo "INFO: Done installing Python."
 
 # create folder for SQLite DB
-sudo mkdir -p /tmp/tmp
+mkdir -p /tmp/tmp
 touch /tmp/tmp/sample.db
-sudo chown www-data:www-data /tmp/tmp/sample.db
-sudo chown www-data:www-data /tmp/tmp
-sudo chmod -R 777 /tmp/tmp
+chown www-data:www-data /tmp/tmp/sample.db
+chown www-data:www-data /tmp/tmp
+chmod -R 777 /tmp/tmp
 
 
 
@@ -55,4 +55,4 @@ cp -r /vagrant/jobs/Python_Pipeline /var/lib/jenkins/jobs/
 chmod -R 777 /var/lib/jenkins/jobs/
 
 # restart Jenkins
-sudo service jenkins restart
+service jenkins restart
