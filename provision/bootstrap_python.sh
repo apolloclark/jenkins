@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Install various dependencies
 apt-get -y install build-essential libreadline-gplv2-dev libncursesw5-dev \

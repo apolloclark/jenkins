@@ -10,6 +10,7 @@ pull down and use whatever the latest Jenkins Stable build is.
 ```shell
 git clone https://github.com/apolloclark/vagrant-jenkins-pipeline
 cd vagrant-jenkins-pipeline
+cp aws-config-example.yml aws-config.yml
 vagrant up
 # open a browser: http://127.0.0.1:8080/job/PipelineDemo/
 ```
@@ -21,7 +22,7 @@ cd vagrant-jenkins-pipeline
 cp aws-config-example.yml aws-config.yml
 # update aws-config.yml with AWS credentials
 vagrant up --provider=aws
-# open a browser: http://<ec2_ip_addr>:8080/
+# open a browser: http://<ec2_ip_addr>:8080/job/PipelineDemo/
 ```
 
 ## Jenkins Logs
@@ -29,12 +30,12 @@ vagrant up --provider=aws
 watch tail -n 32 /var/log/jenkins/jenkins.log
 ```
 
-## Configure for Language
+## Configure for Programming Language
 
-There are multiple sub-projects within this one which are Quickstarts for
-various programming languages and web frameworks. You can edit the Vagrantfile
-to install language specific code quality tools, and enable language specific
-Build projects.
+There are multiple sub-projects within the ./data folder, which are Quickstarts
+for various programming languages and web frameworks. You can edit the
+Vagrantfile to install language specific code quality tools, and enable
+language specific Build projects.
 
 ## Links
 
