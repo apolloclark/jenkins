@@ -32,6 +32,7 @@ service jenkins restart
 # clear the logs, set folder permissions, restart
 chmod -R 0777 /var/lib/jenkins/plugins
 rm -f /var/log/jenkins/jenkins.log
+cp /vagrant/config.xml /var/lib/jenkins/config.xml
 service jenkins restart
 echo "INFO: Done installing Jenkins plugins."
 
