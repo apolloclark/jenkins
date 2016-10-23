@@ -11,6 +11,7 @@ export DEBIAN_FRONTEND="noninteractive"
 wget -q -O - http://pkg.jenkins-ci.org/debian-stable/jenkins-ci.org.key | \
 	apt-key add -
 sh -c 'echo "deb http://pkg.jenkins-ci.org/debian-stable binary/" > /etc/apt/sources.list.d/jenkins.list'
+add-apt-repository -y ppa:openjdk-r/ppa
 apt-get -y update
 apt-get install -y openjdk-8-jre-headless daemon git-core jenkins
 
@@ -23,6 +24,7 @@ service jenkins restart
 # Install Jenkins plugins
 # @see http://updates.jenkins-ci.org/download/plugins/
 # @see /var/lib/jenkins/plugins/
+# @see https://github.com/jenkinsci/workflow-aggregator-plugin/blob/master/demo/plugins.txt
 echo "INFO: Installing Jenkins plugins..."
 mkdir -p /var/lib/jenkins/plugins/
 chmod -R 0777 /var/lib/jenkins/plugins
@@ -33,7 +35,6 @@ service jenkins restart
 # clear the logs, set folder permissions, restart
 chmod -R 0777 /var/lib/jenkins/plugins
 rm -f /var/log/jenkins/jenkins.log
-cp /vagrant/config.xml /var/lib/jenkins/config.xml
 service jenkins restart
 echo "INFO: Done installing Jenkins plugins."
 
@@ -42,10 +43,12 @@ echo "INFO: Done installing Jenkins plugins."
 # copy over project setup
 echo "INFO: Copying over Pre-configured Jobs."
 mkdir -p /var/lib/jenkins/jobs/
-cp -r /vagrant/jobs/PipelineDemo /var/lib/jenkins/jobs/
+cp -r /vagrant/jobs/. /var/lib/jenkins/jobs/
 chmod -R 777 /var/lib/jenkins/jobs/
+chown -R jenkins:jenkins /var/lib/jenkins
 
 # restart Jenkins
+cp /vagrant/config.xml /var/lib/jenkins/config.xml
 service jenkins restart
 
 # Autoresize the EC2 root EBS partition, if needed

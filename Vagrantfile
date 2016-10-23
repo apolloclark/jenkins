@@ -32,7 +32,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
         override.vm.box = "ubuntu/trusty64"
         vb.cpus = 1
-        vb.memory = "512"
+        vb.memory = "1024"
         vb.gui = false
         
         override.vm.network "forwarded_port", guest: 8080, host: 8080

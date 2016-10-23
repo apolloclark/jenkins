@@ -5,7 +5,6 @@ APP_SETTINGS="config.ProductionConfig"
 export APP_SETTINGS
 
 
-
 # create DB tables, set folder and file permissions
 cd ./www/
 python db_create_users.py
