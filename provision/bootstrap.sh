@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# Update Aptitude
-apt-get update
+# set the environment to be fully automated
 export DEBIAN_FRONTEND="noninteractive"
 
 
@@ -25,10 +24,11 @@ service jenkins restart
 # @see http://updates.jenkins-ci.org/download/plugins/
 # @see /var/lib/jenkins/plugins/
 # @see https://github.com/jenkinsci/workflow-aggregator-plugin/blob/master/demo/plugins.txt
+
+# install the Jenkins plugins
 echo "INFO: Installing Jenkins plugins..."
 mkdir -p /var/lib/jenkins/plugins/
 chmod -R 0777 /var/lib/jenkins/plugins
-
 /vagrant/jenkins_install_plugins.sh /vagrant/jenkins_plugins.txt
 service jenkins restart
 
@@ -50,9 +50,3 @@ chown -R jenkins:jenkins /var/lib/jenkins
 # restart Jenkins
 cp /vagrant/config.xml /var/lib/jenkins/config.xml
 service jenkins restart
-
-# Autoresize the EC2 root EBS partition, if needed
-if [[ $(df -h | grep 'xvda1') ]]; then
-    /sbin/parted ---pretend-input-tty /dev/xvda resizepart 1 yes 100%
-    resize2fs /dev/xvda1
-fi

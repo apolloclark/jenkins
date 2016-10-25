@@ -119,5 +119,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         if Vagrant.has_plugin?("vagrant-vbguest")
             override.vbguest.auto_update = false
         end
+
+        # run AWS specific steps
+        override.vm.provision :shell, path: "./provision/bootstrap_aws.sh"
     end
 end
