@@ -25,6 +25,13 @@ cp aws-config-example.yml aws-config.yml
 vagrant up --provider=aws
 # open a browser: http://<ec2_ip_addr>:8080/job/Python_Pipeline/
 # click "Build Now"
+
+
+# create SSH port forwarding tunnel
+ssh -L 8080:127.0.0.1:8080 admin@<ec2-dns> -i <aws_key_file>
+
+# create SSH port forwarding tunnel without a Terminal
+ssh -nNT -L 8080:127.0.0.1:8080 admin@<ec2-dns> -i <aws_key_file>
 ```
 
 ## Jenkins Logs
