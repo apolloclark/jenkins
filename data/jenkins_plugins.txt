@@ -9,6 +9,7 @@ git:3.0.0
 git-server:1.7
 github-api:1.77
 handlebars:1.1.1
+icon-shim:2.0.3
 jquery-detached:1.2.1
 junit:1.19
 mailer:1.18
