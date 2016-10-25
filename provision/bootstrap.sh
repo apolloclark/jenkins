@@ -43,10 +43,10 @@ echo "INFO: Done installing Jenkins plugins."
 # copy over project setup
 echo "INFO: Copying over Pre-configured Jobs."
 mkdir -p /var/lib/jenkins/jobs/
-cp -r /vagrant/jobs/. /var/lib/jenkins/jobs/
+cp -rf /vagrant/jobs/. /var/lib/jenkins/jobs/
 chmod -R 777 /var/lib/jenkins/jobs/
 chown -R jenkins:jenkins /var/lib/jenkins
 
 # restart Jenkins
-cp /vagrant/config.xml /var/lib/jenkins/config.xml
+cp -f /vagrant/config.xml /var/lib/jenkins/config.xml
 service jenkins restart
