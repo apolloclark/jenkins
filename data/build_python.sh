@@ -7,6 +7,12 @@ export APP_SETTINGS
 
 # create DB tables, set folder and file permissions
 cd ./www/
+mkdir -p /tmp/tmp
+touch /tmp/tmp/sample.db
+chown www-data:www-data /tmp/tmp/sample.db
+chown www-data:www-data /tmp/tmp
+chmod -R 777 /tmp/tmp
+
 python db_create_users.py
 python db_create_posts.py
 	
