@@ -4,5 +4,7 @@
 
 .vagrant/**
 .vagrant/
-aws-config.ymldata/gruyere.tar
+aws-config.yml
+
+data/gruyere.tar
 data/painite.tar
