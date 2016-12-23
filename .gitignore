@@ -1,6 +1,8 @@
-
+.settings/
 .project
+.pydevproject
 
 .vagrant/**
 .vagrant/
-aws-config.yml
+aws-config.ymldata/gruyere.tar
+data/painite.tar
