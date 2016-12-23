@@ -9,8 +9,9 @@ export DEBIAN_FRONTEND="noninteractive"
 # @see https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Ubuntu
 wget -q -O - http://pkg.jenkins-ci.org/debian-stable/jenkins-ci.org.key | \
 	apt-key add -
-sh -c 'echo "deb http://pkg.jenkins-ci.org/debian-stable binary/" > /etc/apt/sources.list.d/jenkins.list'
-add-apt-repository -y ppa:openjdk-r/ppa
+echo "deb http://pkg.jenkins-ci.org/debian-stable binary/" | \
+	sudo tee /etc/apt/sources.list.d/jenkins.list
+add-apt-repository -y ppa:openjdk-r/ppa 2>&1
 apt-get -y update
 apt-get install -y openjdk-8-jre-headless daemon git-core jenkins
 
@@ -50,3 +51,33 @@ chown -R jenkins:jenkins /var/lib/jenkins
 # restart Jenkins
 cp -f /vagrant/config.xml /var/lib/jenkins/config.xml
 service jenkins restart
+
+exit 0;
+
+
+
+# install Docker
+apt-get install apt-transport-https ca-certificates
+apt-key adv \
+    --keyserver hkp://ha.pool.sks-keyservers.net:80 \
+    --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" | \
+	sudo tee /etc/apt/sources.list.d/docker.list
+apt-get update
+apt-get install -y \
+	linux-headers-generic \
+	linux-image-extra-$(uname -r) \
+    linux-image-extra-virtual \
+    linux-image-generic-lts-trusty \
+    docker-engine
+usermod -aG docker vagrant
+service docker start
+docker run hello-world 2>&1
+
+# download the Painite and Gruyere containers
+# docker pull apolloclark/painite | cat
+docker load --input /vagrant/painite.tar -q
+
+# docker pull karthequian/gruyere | cat
+docker load --input /vagrant/gruyere.tar -q
+	

@@ -39,6 +39,33 @@ ssh -nNT -L 8080:127.0.0.1:8080 admin@<ec2-dns> -i <aws_key_file>
 watch tail -n 32 /var/log/jenkins/jenkins.log
 ```
 
+## Painite attacks
+```shell
+# scan the local network
+nmap -sn -vv 172.17.0.1/24
+
+# TCP SYN port scan a specific IP
+nmap -sS -vv 172.17.0.2
+
+# attempt to connect
+curl -i  http://172.17.0.2:8008/1677330664470980985/ | less
+
+# list all the DIRB wordlists
+ls -lah /usr/share/dirb/wordlists/
+ls -lah /usr/share/dirb/wordlists/others
+ls -lah /usr/share/dirb/wordlists/vulns
+
+# run the dirb attack, filter out responses that are 250 bytes
+dirb http://172.17.0.2:8008/1677330664470980985/ \
+    /usr/share/dirb/wordlists/common.txt -f \
+    | grep -v 250
+
+
+```
+
+
+
+
 ## Configure for Programming Language
 
 There are multiple sub-projects within the ./data folder, which are Quickstarts
