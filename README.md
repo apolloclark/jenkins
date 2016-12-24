@@ -6,22 +6,44 @@ pull down and use whatever the latest Jenkins Stable build is.
 
 ![alt text](https://github.com/apolloclark/vagrant-jenkins-pipeline/blob/master/preview.jpg "Jenkins Pipeline preview")
 
+
+
 ## Run Locally
 ```shell
+
+# install the vagrant aws provider
+vagrant plugin install vagrant-aws
+
+# clone the repo
 git clone https://github.com/apolloclark/vagrant-jenkins-pipeline
 cd vagrant-jenkins-pipeline
+
+# copy the example AWS config
 cp -f aws-config-example.yml aws-config.yml
+
+# run
 vagrant up
 # open a browser: http://127.0.0.1:8080/job/PipelineDemo/
 # click "Build Now"
 ```
 
+
+
 ## Run on Amazon
 ```shell
+
+# install the vagrant aws provider
+vagrant plugin install vagrant-aws
+
+# clone the repo
 git clone https://github.com/apolloclark/vagrant-jenkins-pipeline
 cd vagrant-jenkins-pipeline
+
+# copy the example AWS config, customize
 cp -f aws-config-example.yml aws-config.yml
-# update aws-config.yml with AWS credentials
+
+
+# run
 vagrant up --provider=aws
 # open a browser: http://<ec2_ip_addr>:8080/job/Python_Pipeline/
 # click "Build Now"
@@ -34,10 +56,14 @@ ssh -L 8080:127.0.0.1:8080 admin@<ec2-dns> -i <aws_key_file>
 ssh -nNT -L 8080:127.0.0.1:8080 admin@<ec2-dns> -i <aws_key_file>
 ```
 
+
+
 ## Jenkins Logs
 ```shell
 watch tail -n 32 /var/log/jenkins/jenkins.log
 ```
+
+
 
 ## Painite attacks
 ```shell
