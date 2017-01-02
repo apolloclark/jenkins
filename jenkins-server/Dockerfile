@@ -12,9 +12,9 @@ RUN chmod +x /vagrant/bootstrap.sh; \
 	sync; \
     /vagrant/bootstrap.sh
 
-# RUN chmod +x /vagrant/bootstrap_python.sh; \
-#	sync; \
-#    /vagrant/bootstrap_python.sh
+RUN chmod +x /vagrant/bootstrap_python.sh; \
+	sync; \
+	/vagrant/bootstrap_python.sh
     
 EXPOSE 8080
 
