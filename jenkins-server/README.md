@@ -8,15 +8,49 @@ pull down and use whatever the latest Jenkins Stable build is.
 
 
 
-## Run Locally
+## Docker-compose, run Server and Clients
 ```shell
+# run Server and Client Docker images
+docker-compose up
+# open a browser: http://127.0.0.1:8080/job/PipelineDemo/
+# click "Build Now"
+
+# shutdown
+docker-compose stop
+
+# cleanup
+docker-compose rm -f
+```
+
+
+
+
+## Docker, run Server
+```shell
+# change dir
+cd jenkins-server
+
+# build
+docker build --no-cache=true -t apolloclark/jenkins-server .
+
+# run
+docker run -it -p 8080:8080 -p 50000:50000 apolloclark/jenkins-server
+
+# open a browser: http://127.0.0.1:8080/job/PipelineDemo/
+# click "Build Now"
+```
+
+
+
+
+
+## Vagrant
+```shell
+# change dir
+cd jenkins-server
 
 # install the vagrant aws provider
 vagrant plugin install vagrant-aws
-
-# clone the repo
-git clone https://github.com/apolloclark/vagrant-jenkins-pipeline
-cd vagrant-jenkins-pipeline
 
 # copy the example AWS config
 cp -f aws-config-example.yml aws-config.yml
@@ -29,7 +63,9 @@ vagrant up
 
 
 
-## Run on Amazon
+
+
+## Deploy to Amazon
 ```shell
 
 # install the vagrant aws provider
@@ -55,6 +91,8 @@ ssh -L 8080:127.0.0.1:8080 admin@<ec2-dns> -i <aws_key_file>
 # create SSH port forwarding tunnel without a Terminal
 ssh -nNT -L 8080:127.0.0.1:8080 admin@<ec2-dns> -i <aws_key_file>
 ```
+
+
 
 
 

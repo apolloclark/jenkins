@@ -50,7 +50,7 @@ echo "INFO: Done installing Jenkins plugins."
 
 
 # copy over project setup
-cp -rf /vagrant/jobs/Python_Pipeline /var/lib/jenkins/jobs/
+cp -rf /vagrant/jenkins/jobs/Python_Pipeline /var/lib/jenkins/jobs/
 chmod -R 777 /var/lib/jenkins/jobs/
 
 # restart Jenkins
