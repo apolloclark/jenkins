@@ -28,7 +28,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>sh /vagrant/build_python.sh</command>
+      <command>sh /root/jenkins/build_python.sh</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>

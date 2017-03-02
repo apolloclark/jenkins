@@ -12,7 +12,9 @@ pull down and use whatever the latest Jenkins Stable build is.
 ```shell
 # run Server and Client Docker images
 docker-compose up
-# open a browser: http://127.0.0.1:8080/job/PipelineDemo/
+# open a browser: http://127.0.0.1:8080/
+
+# job/PipelineDemo/
 # click "Build Now"
 
 # shutdown

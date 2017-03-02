@@ -48,4 +48,4 @@ chown -R jenkins:jenkins /var/lib/jenkins/plugins
 
 # clear the logs, set folder permissions, restart
 rm -f /var/log/jenkins/jenkins.log
-echo "INFO: Done installing Jenkins Python plugins."
+echo "INFO: Done installing Jenkins plugins."

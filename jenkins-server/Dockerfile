@@ -1,20 +1,14 @@
-FROM ubuntu:14.04 
+FROM apolloclark/jenkins-base
 MAINTAINER Apollo Clark apolloclark@gmail.com 
 
 # Describe the environment
 ENV DEBIAN_FRONTEND "noninteractive"
-ENV JDK_VERSION 1.8.0_111
-ENV JENKINS_VERSION 2.32.1
 
-# install Jenkins
-COPY ./provision /vagrant
-RUN chmod +x /vagrant/bootstrap.sh; \
+# copy over the config and jobs
+COPY ./data/jenkins /root/jenkins
+RUN chmod +x /vagrant/bootstrap_copy_project.sh; \
 	sync; \
-    /vagrant/bootstrap.sh
-
-RUN chmod +x /vagrant/bootstrap_python.sh; \
-	sync; \
-	/vagrant/bootstrap_python.sh
+	/vagrant/bootstrap_copy_project.sh
     
 EXPOSE 8080
 

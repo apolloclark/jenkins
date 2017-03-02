@@ -54,8 +54,10 @@ echo "INFO: Installing Jenkins plugins..."
 mkdir -p /var/lib/jenkins/plugins/
 chmod -R 0777 /var/lib/jenkins/plugins
 /vagrant/jenkins_install_plugins.sh /vagrant/jenkins_plugins.txt
+# service jenkins restart
 
 # clear the logs, set folder permissions, restart
 chmod -R 0777 /var/lib/jenkins/plugins
 rm -f /var/log/jenkins/jenkins.log
+# service jenkins restart
 echo "INFO: Done installing Jenkins plugins."
