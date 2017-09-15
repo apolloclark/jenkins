@@ -1,7 +1,7 @@
-cobertura:1.9.8
+cobertura:1.11
 javadoc:1.4
-maven-plugin:2.14
-performance:2.0
+maven-plugin:2.17
+performance:3.3
 sloccount:1.21
-token-macro:2.0
+token-macro:2.3
 violations:0.7.11

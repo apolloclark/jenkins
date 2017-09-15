@@ -7,7 +7,7 @@ export DEBIAN_FRONTEND="noninteractive"
 apt-get update
 apt-get upgrade -y
 apt-get install -y wget curl unzip unzip wget daemon python-setuptools \
-	software-properties-common git-core ca-certificates
+	software-properties-common git-core
 
 
 
@@ -23,6 +23,8 @@ add-apt-repository -y ppa:openjdk-r/ppa 2>&1
 apt-get update
 apt-get install -y openjdk-8-jre-headless
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/"
+apt-get install -y ca-certificates
+/var/lib/dpkg/info/ca-certificates-java.postinst configure
 
 
 
@@ -30,15 +32,15 @@ export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/"
 
 # Install Jenkins
 # @see https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+on+Ubuntu
-wget -q -O - http://pkg.jenkins-ci.org/debian-stable/jenkins-ci.org.key | \
+wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | \
 	apt-key add -
-echo "deb http://pkg.jenkins-ci.org/debian-stable binary/" | \
+echo "deb https://pkg.jenkins.io/debian binary/" | \
 	sudo tee /etc/apt/sources.list.d/jenkins.list
 add-apt-repository -y ppa:openjdk-r/ppa 2>&1
 apt-get update
 apt-get install -y jenkins
 
-# hackish way to install a specific version of Jenkins
+# install a specific version of Jenkins
 # dpkg --install /vagrant/jenkins_1.642_all.deb
 # service jenkins restart
 

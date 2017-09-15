@@ -18,7 +18,7 @@ pip install --upgrade pip > /dev/null 2>&1
 # @see https://pip.pypa.io/en/latest/reference/pip.html
 
 # Install code quality tools
-pip install -qqq pylint > /dev/null
+pip install -qqq pylint > /dev/null 2>&1
 pip install --quiet mock coverage nose nosexcover clonedigger ndg-httpsclient \
 	pyasn1 > /dev/null 2>&1
 
